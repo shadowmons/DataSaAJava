@@ -74,4 +74,51 @@ public class ArraysTest {
 		System.out.println(Arrays.deepToString(binario));
 
 	}
+	//Iwant to show the sum, product and average of the items of an array
+	public void CalculusArray(int[] array) {
+		int suma = 0;
+		int mult = 1;
+		float average = 0;
+		for(int number:array) {
+			suma += number;
+			mult *= number;			
+		}
+		average = (float)suma/array.length;
+		System.out.println("the array is: " + Arrays.toString(array));
+		System.out.println("The sum of the elements is: " + suma);
+		System.out.println("The product of all elements is: " + mult);
+		System.out.println("The average of the elements is " + average);
+	}
+	
+	//Write a program that displays the number of occurences of an element in the array
+	public void OccurrencesArray(int[] array, int number) {
+		int cont = 0;
+		for(int caracter:array) {
+			if(caracter ==number) {
+				cont+=1;
+			}
+		}
+		System.out.println("the array is: " + Arrays.toString(array));
+		System.out.println("the number " + number + " appear: " + cont + " times");
+	}
+	
+	//write a program that places the odd elements of an array before the even elements
+	public void SortingOddArray(int[] array) {
+		int[] copy = new int[array.length];
+		int cont = 0;
+		int size = copy.length-1;
+		for (int i = 0; i < copy.length; i++) {
+			if(array[i] % 2 !=0) {
+				copy[cont]=array[i];
+				cont++;
+			}else {
+				copy[size-i+cont]=array[i];
+			}
+		}
+		System.out.println(Arrays.toString(copy));
+		
+		
+		
+	}
+	
 }
