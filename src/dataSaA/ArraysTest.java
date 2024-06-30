@@ -36,6 +36,15 @@ public class ArraysTest {
 		System.out.println(Arrays.toString(number2));
 		
 		TwoD();
+		
+		int[]array = {1,2,2,3,3,4,5,6,7,7,8,9};
+    	CalculusArray(array);
+    	OccurrencesArray(array, 2);
+    	SortingOddArray(array);
+    	
+    	int[][] matrix = {{5,4,33,5,6,55,6},{5,45,2,4},{54,5,3,2,6,},{5,3,6,66,3}};
+    	System.out.println(Arrays.deepToString(matrix));
+    	System.out.println(Arrays.toString(MaxOfRow(matrix)));
 	}
 
 	public void PrintArray(Object[] array) {
@@ -120,5 +129,22 @@ public class ArraysTest {
 		
 		
 	}
+	
+	public int[] MaxOfRow (int[][] matrix) {
+		int[] max = new int[matrix.length];
+		for (int i = 0; i < matrix.length; i++) {
+			max[i]=matrix[i][0];
+			for (int j = 1; j < matrix[i].length; j++) {
+				if(max[i]<matrix[i][j]) {
+					max[i]=matrix[i][j];
+				}
+			}
+			
+		}
+		
+		return max;
+	}
+	
+	
 	
 }
