@@ -1,6 +1,12 @@
 package dataSaA;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.Queue;
+import java.util.Scanner;
+import java.util.Stack;
 
 public class ListTest {
 	
@@ -43,7 +49,6 @@ public class ListTest {
 		integers.remove(0);
 		//Clear is used to empty the array
 		integers.clear();
-		
 		ArrayList<String> fruits = new ArrayList<>();
 		fruits.add("blackberry");
 		fruits.add("banana");
@@ -54,7 +59,6 @@ public class ListTest {
 		System.out.println(fruits);
 		fruits.sort(null);
 		System.out.println(fruits);
-		
 		integers.add(1);
 		integers.add(5);
 		integers.add(1);
@@ -68,6 +72,62 @@ public class ListTest {
 		System.out.println(integers);
 		SortRemoveArray(integers);
 		System.out.println(integers);
+		
+	}
+	
+	//Stack is last in first out(LIFO) it extends class vector
+	public void StackTest() {
+		Stack<Integer> stack = new Stack<>();
+		//To add values
+		stack.push(1);
+		stack.push(3);
+		stack.push(2);
+		//To check the content
+		System.out.println(stack);
+		System.out.println(stack.size());
+		//To check the last element
+		System.out.println(stack.peek());
+		//To eliminate the last element
+		System.out.println(stack.pop());
+		System.out.println(stack.empty());
+				
+	}
+	
+	public void QueueTest() {
+		//first in first out (FIFO)
+		Queue<Person> supermarket = new LinkedList<>();
+		supermarket.add(new Person("alex",21));
+		supermarket.add(new Person("juan", 43));
+		supermarket.add(new Person("Amy",27));
+		//Check the first person in the queue
+		System.out.println(supermarket.peek());
+		//To eliminate the first element
+		System.out.println(supermarket.poll());
+		System.out.println(supermarket.size());
+		System.out.println(supermarket);
+	}
+	
+	static record Person(String name, int age) {}
+	
+	//Each node contend reference for the previous and next node
+	//the head is the first, and the the tail referencest to null
+	//The references take memory
+	public void LinkListTest() {
+		LinkedList <Person> LL = new LinkedList<>();
+		LL.add(new Person("alex",21));
+		LL.add(new Person("juan", 43));
+		LL.add(new Person("Amy",27));
+		LL.forEach(System.out::println);
+		ListIterator<Person> PersonIterator = LL.listIterator();
+		while(PersonIterator.hasNext()) {
+			System.out.println(PersonIterator.next());
+		}
+		while(PersonIterator.hasPrevious()){
+			System.out.println(PersonIterator.previous());
+		}
+		System.out.println(LL.get(0));
+		LL.add(2, new Person("Abel",27));
+		System.out.println(LL);		
 		
 	}
 	
@@ -85,8 +145,7 @@ public class ListTest {
 	}
 	
 	public void ArrayListMultiD() {
-		ArrayList <ArrayList<Double>> matrix =  new ArrayList<>();
-		
+		ArrayList <ArrayList<Double>> matrix =  new ArrayList<>();		
  	}
 	
 	public void InteractiveArray() {
@@ -94,12 +153,9 @@ public class ListTest {
 		Scanner input = new Scanner(System.in);
 		int choice;
 		boolean flag = true;
-		
 		while(flag) {
 			DisplayMenu();
-			choice = input.nextInt();
-			
-			switch(choice) {
+			choice = input.nextInt();switch(choice) {
 			  case 1: 
 				  System.out.println("Write what you want to add to the array, could be anything");
 				  elements.add(input.next());
@@ -115,16 +171,9 @@ public class ListTest {
 				  break;
 				  default:
 					  break;
-				  
-			
-			
 			}
-		
-			
-			
 		}
-		
-		
+		input.close();
 	}
 	
 	public static void DisplayMenu(){
